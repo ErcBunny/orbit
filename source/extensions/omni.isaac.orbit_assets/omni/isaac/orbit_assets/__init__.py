@@ -35,6 +35,7 @@ from .allegro import *
 from .anymal import *
 from .cartpole import *
 from .franka import *
+from .kingfisher import *
 from .kinova import *
 from .ridgeback_franka import *
 from .sawyer import *
