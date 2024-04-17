@@ -1,6 +1,46 @@
 Changelog
 ---------
 
+0.15.12 (2024-04-16)
+~~~~~~~~~~~~~~~~~~~~
+
+Changed
+^^^^^^^
+
+* Replaced calls to the ``check_file_path`` function in the :mod:`omni.isaac.orbit.sim.spawners.from_files`
+  with the USD stage resolve identifier function. This helps speed up the loading of assets from file paths
+  by avoiding Nucleus server calls.
+
+
+0.15.11 (2024-04-15)
+~~~~~~~~~~~~~~~~~~~~
+
+Added
+^^^^^
+
+* Added the :meth:`omni.isaac.orbit.sim.SimulationContext.has_rtx_sensors` method to check if any
+  RTX-related sensors such as cameras have been created in the simulation. This is useful to determine
+  if simulation requires RTX rendering during step or not.
+
+Fixed
+^^^^^
+
+* Fixed the rendering of RTX-related sensors such as cameras inside the :class:`omni.isaac.orbit.envs.RLTaskEnv` class.
+  Earlier the rendering did not happen inside the step function, which caused the sensor data to be empty.
+
+
+0.15.10 (2024-04-11)
+~~~~~~~~~~~~~~~~~~~~
+
+Fixed
+^^^^^
+
+* Fixed sharing of the same memory address between returned tensors from observation terms
+  in the :class:`omni.isaac.orbit.managers.ObservationManager` class. Earlier, the returned
+  tensors could map to the same memory address, causing issues when the tensors were modified
+  during scaling, clipping or other operations.
+
+
 0.15.9 (2024-04-04)
 ~~~~~~~~~~~~~~~~~~~
 

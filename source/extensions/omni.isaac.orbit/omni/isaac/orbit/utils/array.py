@@ -5,8 +5,6 @@
 
 """Sub-module containing utilities for working with different array backends."""
 
-from __future__ import annotations
-
 import numpy as np
 import torch
 from typing import Union
@@ -75,7 +73,7 @@ def convert_to_torch(
         tensor = array
     elif isinstance(array, np.ndarray):
         if array.dtype == np.uint32:
-            array = array.astype(np.int64)
+            array = array.astype(np.int32)
         # need to deal with object arrays (np.void) separately
         tensor = torch.from_numpy(array)
     elif isinstance(array, wp.array):
